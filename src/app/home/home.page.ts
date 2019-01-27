@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,10 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor( private router: Router, private navCrtl :  NavController) { 
+  constructor( private router: Router, private navCrtl :  NavController, public menu: MenuController) { 
   } 
-
   login(){
     this.router.navigateByUrl('categorias')
   }
+  ionViewWillEnter() {
+    this.menu.swipeEnable(false);
+  }
+  ionViewDidLeave() {
+    this.menu.swipeEnable(true);
+  }
+
+  
 }
