@@ -13,12 +13,7 @@ export class HomePage {
   login(){
     this.router.navigateByUrl('categorias')
   }
-  ionViewWillEnter() {
-    this.menu.swipeEnable(false);
-  }
-  ionViewDidLeave() {
-    this.menu.swipeEnable(true);
-  }
+  
 
   
 }
