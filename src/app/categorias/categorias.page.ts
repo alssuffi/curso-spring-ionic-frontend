@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { categoriaService } from 'src/services/domain/categoria.service';
-import { CategoriaDTO} from '../../models/categoria.dto';
+import { CategoriaDTO} from 'src/models/categoria.dto';
 
 @Component({
   selector: 'app-categorias',
@@ -15,12 +15,10 @@ export class CategoriasPage implements OnInit {
 
   ngOnInit() {
     this.categoriaService.findAll().subscribe(response => {
-      console.log(response)
+      this.items = response
     },
     error => {
       console.log(error)
     });
   }
-
-
 }
