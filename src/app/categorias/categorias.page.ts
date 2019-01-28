@@ -8,7 +8,7 @@ import { CategoriaDTO} from '../../models/categoria.dto';
   styleUrls: ['./categorias.page.scss'],
 })
 export class CategoriasPage implements OnInit {
-  item1s: CategoriaDTO[];
+  items: CategoriaDTO[];
 
   constructor(public categoriaService : categoriaService) { 
   }
