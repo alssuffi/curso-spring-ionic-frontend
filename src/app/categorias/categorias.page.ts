@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { categoriaService } from 'src/services/domain/categoria.service';
+import { CategoriaDTO} from '../../models/categoria.dto';
 
 @Component({
   selector: 'app-categorias',
@@ -7,9 +8,9 @@ import { categoriaService } from 'src/services/domain/categoria.service';
   styleUrls: ['./categorias.page.scss'],
 })
 export class CategoriasPage implements OnInit {
+  item1s: CategoriaDTO[];
 
   constructor(public categoriaService : categoriaService) { 
-
   }
 
   ngOnInit() {
