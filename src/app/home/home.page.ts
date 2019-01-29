@@ -25,7 +25,7 @@ export class HomePage {
     console.log(this.creds);
     this.auth.authenticate(this.creds)
     .subscribe(response => {
-      console.log(response.headers.get('Authorization'))
+      this.auth.successfullLogin(response.headers.get('Authorization'))
       this.router.navigateByUrl('categorias');
     }, error => {}
     );
