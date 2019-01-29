@@ -9,7 +9,7 @@ export class categoriaService {
     constructor(public http: HttpClient){
 
     }
-
+    
     findAll() : Observable<CategoriaDTO[]> {
         return this.http.get<CategoriaDTO[]>(`http://localhost:8082/categorias/`)
     }
