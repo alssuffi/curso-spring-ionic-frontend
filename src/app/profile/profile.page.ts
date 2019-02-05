@@ -28,5 +28,13 @@ export class ProfilePage implements OnInit {
     }
 
   }
+    // verificando se imagem existe  em diretorio web
+    getImageIfExists(any) {
+      this.clienteService.getImageFromBucket(this.cliente.id)
+      .subscribe(response => {
+        this.cliente.imageURL = `http://uol.com.br/cp${this.cliente.id}.jpg`;
+      },
+      error => {});
+    }
 
 }
