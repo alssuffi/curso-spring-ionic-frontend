@@ -1,11 +1,15 @@
 import { Injectable } from "@angular/core";
-import { localUser } from "src/models/local_user";
-import { STORAGE_KEYS } from "src/config/storage.keys";
+//import { STORAGE_KEYS } from "src/config/storage.keys";
+import { STORAGE_KEYS } from "../config/storage.keys";
+import { LocalUser } from "../models/local_user"
+import { Observable } from 'rxjs/';
+
+
 
 @Injectable()
 export class StorageService {
 
-    getLocalUser() : localUser {
+    getLocalUser() : LocalUser {
         let usr = localStorage.getItem(STORAGE_KEYS.localUser);
         if(usr== null){
             return null;
@@ -15,7 +19,7 @@ export class StorageService {
         }
     }
 
-    setLocalUser(obj : localUser){
+    setLocalUser(obj : LocalUser){
         if(obj == null) {
             localStorage.removeItem(STORAGE_KEYS.localUser)
         }
