@@ -11,10 +11,7 @@ export class ClienteService {
     }
     
     findByEmail(email : string) : Observable<ClienteDTO> {
-        let token = this.storage.getLocalUser().token;
-        let authoHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
-        return this.http.get<ClienteDTO>(`http://localhost:8082/clientes/email?value=${email}`,
-        {'headers' : authoHeader});
+        return this.http.get<ClienteDTO>(`http://localhost:8082/clientes/email?value=${email}`);
     }   
 
     //  buscando imagem em algum diretorio web e validando
