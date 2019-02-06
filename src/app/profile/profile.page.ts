@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/services/storage.service';
 import { ClienteDTO } from 'src/models/cliente.dto';
 import { ClienteService } from 'src/services/domain/cliente.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,9 @@ export class ProfilePage implements OnInit {
   email: string;
 
 
-  constructor(public storage: StorageService, public clienteService: ClienteService) { }
+  constructor(public storage: StorageService, 
+              public clienteService: ClienteService, 
+               private router: Router) { }
 
   ngOnInit() {
     let localUser = this.storage.getLocalUser();
@@ -24,7 +27,14 @@ export class ProfilePage implements OnInit {
         this.cliente = response;
         // pegar imagem amazon
         }, 
-      error => {})
+      error => {
+        if(error.status == 403){
+          this.router.navigateByUrl('home');
+        }
+      });
+    }
+    else {
+      this.router.navigateByUrl('home');
     }
 
   }
